@@ -88,7 +88,7 @@ bool bfs()
  
 int dfs(int u,int f) // estou no nó U e tenho de flow livre -> f;
 {
-	//cout << u << endl;
+	
 	if(f <= 0) // deu ruim esse caminho
 		return 0;
 	if(u == target)
@@ -176,19 +176,10 @@ int main()
 					m++;
 					continue;
 				}
-				//cout << "crio laco entre " << j << " e " << op1+n << endl;
-				//cout << "crio laco entre " << j << " e " << op2+n << endl;
 				add_edge(j,op1+n,1);
 				add_edge(j,op2+n,1);
 				add_edge(0,j,1);
 			}
-			// for(int j=1;j<=n;j++) // liga source no 
-			// {
-			// 	if(j == wolf)
-			// 		continue;
-			// 	cout << "crio laco entre " << 0 << " e " << j << endl;
-			// 	add_edge(0,j,1);
-			// }
 			target = 2*n+1;
 			for(int j=n+1;j<=2*n;j++) // liga todos no target;
 			{
@@ -202,10 +193,10 @@ int main()
 			}
 
 			int resp = max_flow();
-			//cout << resp << endl;
+			
 			if(resp<((n-1)-m))
 				ans++;
-			//cout << endl << endl << endl;
+			
 		}
 		cout << ans << endl;
 	}
