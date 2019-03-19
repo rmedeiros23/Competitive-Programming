@@ -20,7 +20,7 @@ long double ternary()
 	long double l = -200005*1.0;
 	long double r = 200005*1.0;
 	int cont =0;
-	while(cont < 400010/((1.5)*n))
+	while(cont < 400005)
 	{
 		long double m1,m2;
 		m1 = l + ((r-l)/3.0);
