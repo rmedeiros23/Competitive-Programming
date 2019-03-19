@@ -10,51 +10,33 @@ using namespace std;
 #define ll long long
 #define MAX 50005
 
-int n;
-long double x[MAX],y[MAX];
+
 long double query(double xfin)
 {
-	long double tempo = -1.0;
-	for(int i=0;i<n;i++)
+
+}
+long double ternary()
+{
+	long double l = -200005*1.0;
+	long double r = 200005*1.0;
+	int cont =0;
+	while(cont < 400010/((1.5)*n))
 	{
-		long double dist = (x[i]-xfin)*(x[i]-xfin) + y[i]*y[i];
-		dist = sqrt(dist);
-		tempo = max(dist,tempo);
+		long double m1,m2;
+		m1 = l + ((r-l)/3.0);
+		m2 = r - ((r-l)/3.0);
+		if(query(m1) < query(m2))
+			r = m2;
+		else
+			l = m1;
+		cont++;
 	}
-	return tempo;
-
-
+	return (r+l)/2.0;
 }
 
 int main()
 {	
 	fastcin;
-	int t;
-	cin >> n;
-	while(n!=0)
-	{
-		for(int i=0;i<n;i++)
-		{
-			cin >> x[i] >> y[i];
-		}
-		long double l = -200005*1.0;
-		long double r = 200005*1.0;
-		int cont =0;
-		while(cont < 400010/((1.5)*n))
-		{
-			long double m1,m2;
-			m1 = l + ((r-l)/3.0);
-			m2 = r - ((r-l)/3.0);
-			//cout << "l = " << setprecision (20) << l << " r = " << setprecision (20) << r << endl;
-			//cout << "m1 = " << setprecision (20) << m1 << " m2 = " << setprecision (20) <<  m2  << endl;;
-			if(query(m1) < query(m2))
-				r = m2;
-			else
-				l = m1;
-			cont++;
-		}
-		cout << setprecision (20) << (l+r)/2.0 << " " << setprecision(20) <<  query((l+r)/2.0) << endl;
-		cin >> n;
-	}
+
 	return 0;
 }
