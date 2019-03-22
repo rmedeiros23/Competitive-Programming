@@ -9,7 +9,7 @@ using namespace std;
 #define fastcin ios_base::sync_with_stdio(false);
 #define ll long long
 #define endl "\n"
-#define MAXN 10005
+#define MAXN 200005
 #define MAXLOG 20
 
 int n,m,q;
@@ -143,6 +143,4 @@ int main()
 		cin >> a >> b;
 		cout << queryLCA(a,b) << endl; 
 	}
-	
-
 }
