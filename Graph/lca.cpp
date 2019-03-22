@@ -1,9 +1,4 @@
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <string.h>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
 #define For(i,a,b) for(int (i)=(a);(i) < (b); ++(i))
 #define INF 0x3f3f3f3f
@@ -60,14 +55,10 @@ void buildLCA()
 		
 		Exemplo: ancestral de distancia 1 é a mesma coisa de
 		ancestral de distancia 1 do ancestral de distancia 1
-
 		1 -> 2 -> 3
-
 		2 é o ancestral de distancia 1 do 3 
 		1 é o ancestral de distancia 1 do 2
-
 		1 é o ancestral de distancia 1 do ancestral de distancia 1 do 3
-
 		Exemplo: ancestral de distância 4 é a mesma coisa de 
 		ancestral de distancia 2 do ancestral de distância 2
 		1->2 ->3 -> 4 -> 5
@@ -137,10 +128,9 @@ int main()
 	cin >> n >> m;
 	for(int i=0;i<m;i++)
 	{
+		// recebo one based e preciso de 0 based
 		int a,b;
 		cin >> a >> b;
-		a--;
-		b--;
 		grafo[a].pb(b);
 	}
 	int root = 0;// ADICIONA A RAIZ
@@ -151,9 +141,7 @@ int main()
 	{
 		int a,b;
 		cin >> a >> b;
-		a--;
-		b--;
-		cout << queryLCA(a,b)+1 << endl; 
+		cout << queryLCA(a,b) << endl; 
 	}
 	
 
