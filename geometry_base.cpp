@@ -1,5 +1,5 @@
 /* 
-    credits to github.com/loppa for a part of the algorithms
+    credits to github.com/loppa and github.com/vitorxjoey for a part of the algorithms
 */
 #include <bits/stdc++.h>
 using namespace std;
@@ -118,7 +118,55 @@ public:
             area += v[i] ^ v[(i+1)%v.size()];
         return abs(area/2.0);
     }
+
+    /* Retorna se point p esta dentro do poligono convexo v, pontos de v estao
+     * em counter clockwise
+     * Considera borda como fora
+     * O(log2(v.size()))
+     */
+    static bool inside(const vector<Point> &v, const Point &p) {
+        // V DEVE ESTAR EM COUNTER CLOCKWISE
+        int n = v.size();
+
+        if(n < 3)
+            return false;
+    
+        // Considerar borda como dentro: mudar para <
+        if(((v[1]-v[0])^(p-v[0])) <= 0)
+            return false;
+
+        int bot = 2, top = n-1;
+        int ans = -1;
+        while(bot <= top) {
+            int mid = (bot+top)>>1;
+
+            // Considerar borda como dentro: mudar para <=
+            if(((v[mid]-v[0])^(p-v[0])) < 0) {
+                ans = mid;
+                top = mid-1;
+            } 
+            else {
+                bot = mid+1;
+            }
+        }
+
+        if(ans == -1)
+            return false;
+
+        // Considerar borda como dentro: mudar para <
+        if(((v[ans]-v[ans-1])^(p-v[ans-1])) <= 0)
+            return false;
+
+        return true;
+    }
+
 };
+
+template <class T>
+T getAreaTriangle (T a, T b, T c) {
+    T p = (a + b + c)/2.0;
+    return sqrt (p * (p - a) * (p - b) * (p - c));
+}
 
 int main()
 {   
