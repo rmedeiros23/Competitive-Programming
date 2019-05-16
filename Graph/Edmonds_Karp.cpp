@@ -138,5 +138,5 @@ void incializa()
 
 int main()
 {
-
+	fastcin;
 }
