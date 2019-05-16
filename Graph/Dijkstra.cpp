@@ -1,8 +1,4 @@
-#include <vector>
-#include <iostream>
-#include <queue>
-#include <algorithm>
-using namespace std;
+#include <bits/stdc++.h>
 #define For(i,a,b) for(int (i)=(a);(i) < (b); ++(i))
 #define INF 0x3f3f3f3f
 #define pb push_back
@@ -12,7 +8,7 @@ using namespace std;
 #define fastcin ios_base::sync_with_stdio(false);
 #define ll long long
 #define endl "\n"
-#define MAX 1000005
+#define MAX 2000005
 #define PI acos(-1)
 
 vector<pair<int,int > > grafo[MAX];
@@ -30,7 +26,6 @@ int djikstra(int root,int target)
 		int topo = pq.top().se;
 		int peso = -pq.top().fi;
 		pq.pop();
-		//cout << "at =  " << topo << " peso = " << peso <<  endl;
 		if(dist[topo] < peso)
 			continue;
 		for(int i=0;i<(int)grafo[topo].size();i++)
