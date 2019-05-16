@@ -47,7 +47,8 @@ int kruskal()
 int main()
 {	
 	fastcin;	
-
+	for(int i=0;i<MAX;i++)
+		pai[i] = i;
 }
 
 
