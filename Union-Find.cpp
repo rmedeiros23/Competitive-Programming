@@ -9,16 +9,15 @@ using namespace std;
 #define fastcin ios_base::sync_with_stdio(false);
 #define ll long long
 #define endl "\n"
-#define MAX 100005
+#define MAX 
 
-vector<pair<int,int> > grafo[MAX];
 int pai[MAX];
 
 int f(int i)
-{
+{	
         if(i == pai[i]) // achou o lider
 		return i;
-	return pai[i] = f(i);
+	return pai[i] = f(pai[i]);
 } 
 bool unir(int a,int b)
 {
@@ -33,22 +32,8 @@ bool unir(int a,int b)
 int main()
 {	
 	fastcin;	
-	int n,m;
-	cin >> n;
-	while(n!=0)
-	{
-		cin >> m;
-		for(int i=0;i<m;i++)
-		{
-			int a,b,c;
-			cin >> a >> b >> c;
-			grafo[a].pb(mp(c,a));
-			grafo[b].pb(mp(c,a));
-		}
-	}
 	for(int i=0;i<MAX;i++)
 		pai[i] = i; // inicialmente todo mundo é seu próprio lider 
-
 }
 
 
