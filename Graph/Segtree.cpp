@@ -58,7 +58,7 @@ void update(int at,int i,int j,int pos,int val)
 	}
 	
 	update(at*2,i,(i+j)/2,pos,val);
-	update(at*2,(i+j)/2+1,j,pos,val);
+	update(at*2+1,(i+j)/2+1,j,pos,val);
 	seg[at] = seg[2*at] + seg[2*at+1];
 }
 int main()
