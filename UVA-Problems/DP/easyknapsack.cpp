@@ -43,8 +43,7 @@ int main()
 		{
 			int a,b;
 			cin >>a >> b;
-			swap(a,b);
-			v.pb(mp(a,b));
+			v.pb(mp(b,a));
 					
 		}
 		int m;
