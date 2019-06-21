@@ -1,3 +1,7 @@
+/* 
+	Code with some Bug
+*/
+
 #include <string.h>
 #include <vector>
 #include <algorithm>
