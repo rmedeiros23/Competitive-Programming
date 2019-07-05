@@ -68,15 +68,9 @@ void buildLCA()
 	 	1 é o ancestral de distancia 2 do ancestral de distancia 2 do 5
 	*/
 	for(int j=1;(1<<j) < n;j++)
-	{
 		for(int i=0;i<n;i++)
-		{
 			if(ancestral[i][j-1]!=-1)
-			{
 				ancestral[i][j] = ancestral[ancestral[i][j-1]][j-1];
-			}
-		}
-	}
 
 }
 
@@ -91,9 +85,8 @@ int queryLCA(int a,int b)
 	while(dist>0)
 	{
 		if(dist%2 == 1)
-		{
 			a = ancestral[a][eleva];
-		}
+		
 		eleva++;
 		dist/=2;
 	}
