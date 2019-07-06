@@ -9,8 +9,9 @@ using namespace std;
 #define fastcin ios_base::sync_with_stdio(false);
 #define ll long long
 #define endl "\n"
-#define MAXN 200005
-#define MAXLOG 20
+#define MAXN 200006
+#define MAXLOG 30
+#define LEVEL 25
 
 int n,m,q;
 int pai[MAXN],ancestral[MAXN][MAXLOG],level[MAXN];
@@ -77,19 +78,15 @@ void buildLCA()
 int queryLCA(int a,int b)
 {
 	//Primeiramente preciso deixar os dois no mesmo nível (subo o que ta mais em baixo)
-	if(level[a] < level[b])
+	if(level[b] < level[a])
 		swap(a,b); // a é mais fundo;
-	int dist = level[a]-level[b];
-	int eleva=0; // quantos degraus eu subo
+	int dist = level[b]-level[a];
+	
 
-	while(dist>0)
-	{
-		if(dist%2 == 1)
-			a = ancestral[a][eleva];
-		
-		eleva++;
-		dist/=2;
-	}
+	for(int i=0;i<LEVEL;i++)
+		if((dist>>i)&1)
+			b = ancestral[b][i];
+
 	
 	if(a == b) // b era ancestral de a
 		return a; // ou b
@@ -100,10 +97,9 @@ int queryLCA(int a,int b)
 		(difícil subir direo ao de ancestral certo)
 		Assim, preciso subir até achar o primeiro nó que tem pais iguais
 	*/
-	eleva = 0;
-	for(int j=10;j>=0;j--)
+	for(int j=LEVEL-1;j>=0;j--)
 	{
-		if(ancestral[a][j]!=-1 and (ancestral[a][j] != ancestral[b][j]))
+		if((ancestral[a][j] != ancestral[b][j]))
 		{
 			a = ancestral[a][j];
 			b = ancestral[b][j];
@@ -111,7 +107,6 @@ int queryLCA(int a,int b)
 	}
 	return pai[a];
 }
-
 int main()
 {	
 	/*
