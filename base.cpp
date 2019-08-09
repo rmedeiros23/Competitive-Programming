@@ -6,9 +6,10 @@ using namespace std;
 #define mp make_pair
 #define fi first
 #define se second
-#define fastcin ios_base::sync_with_stdio(false);
+#define fastcin ios_base::sync_with_stdio(false);cin.tie(NULL);
 #define ll long long
 #define endl "\n"
+#define debug false
 #define MAX 
 
 
