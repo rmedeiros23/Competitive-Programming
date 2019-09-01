@@ -34,7 +34,7 @@ matrix mult(matrix A,matrix B)
 	for(int i =0;i<linhas_A;i++)
 	{
 		// colunas de A -> defino elemento do ret (ret[i][j])
-		for(int j = 0 ; j<colunas_A;j++) 
+		for(int j = 0 ; j<colunas_B;j++) 
 		{
 			// parte que vai ser percorrida na multiplicação (linhas_B = Colunas_A)	
 			for(int z =0 ;z<linhas_B;z++)
