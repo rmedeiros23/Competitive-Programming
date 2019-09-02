@@ -52,7 +52,8 @@ matrix mult(matrix A,matrix B)
 			// parte que vai ser percorrida na multiplicação (linhas_B = Colunas_A)	
 			for(int z =0 ;z<linhas_B;z++)
 			{
-				ret[i][j] += (A[i][z]%MOD*B[z][j]%MOD)%MOD;			
+				ret[i][j] += (A[i][z]%MOD*B[z][j]%MOD)%MOD;
+				ret[i][j] %=MOD;
 			}
 		}
 	}
