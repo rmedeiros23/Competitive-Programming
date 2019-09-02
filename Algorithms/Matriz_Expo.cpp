@@ -39,7 +39,7 @@ matrix mult(matrix A,matrix B)
 			// parte que vai ser percorrida na multiplicação (linhas_B = Colunas_A)	
 			for(int z =0 ;z<linhas_B;z++)
 			{
-				ret[i][j] += (A[i][z]*B[z][i])%MOD;			
+				ret[i][j] += (A[i][z]*B[z][j])%MOD;			
 			}
 		}
 	}
@@ -47,7 +47,7 @@ matrix mult(matrix A,matrix B)
 }
 
 // O(N^3 * log2(B) 
-matrix Fast_matrix_exp (matrix A,ll int b, ll int m)
+matrix Fast_matrix_exp (matrix A,ll int b, ll int m) // ERRO
 {
 	matrix ret = init();// função que inicializa matriz base (Ser codada)
 	while(b>0)
