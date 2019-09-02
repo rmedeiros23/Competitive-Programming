@@ -39,7 +39,7 @@ matrix mult(matrix A,matrix B)
 			// parte que vai ser percorrida na multiplicação (linhas_B = Colunas_A)	
 			for(int z =0 ;z<linhas_B;z++)
 			{
-				ret[i][j] += (A[i][z]*B[z][j])%MOD;			
+				ret[i][j] += (A[i][z]%MOD*B[z][j]%MOD)%MOD;			
 			}
 		}
 	}
@@ -47,9 +47,10 @@ matrix mult(matrix A,matrix B)
 }
 
 // O(N^3 * log2(B) 
-matrix Fast_matrix_exp (matrix A,ll int b, ll int m) // ERRO
+matrix Fast_matrix_exp (matrix A,ll int b) // ERRO
 {
-	matrix ret = init();// função que inicializa matriz base (Ser codada)
+	int N = A.size();// Para matriz se exponenciada, a matriz deve ser quadrada.
+	matrix ret = identity(N); // toda matriz elevada a 0 = identidade, sendo esse o caso base.
 	while(b>0)
 	{
 		if(b%2 == 1)
@@ -59,8 +60,11 @@ matrix Fast_matrix_exp (matrix A,ll int b, ll int m) // ERRO
 	}
 	return ret;
 }
-
-matrix init(int tam)
+matrix identity(int N)
+{
+	
+}
+matrix base(int N)// função que inicializa matriz base (dependende da recorrência)
 {
 
 }
