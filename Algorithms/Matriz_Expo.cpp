@@ -10,11 +10,24 @@ using namespace std;
 #define ll long long
 #define endl "\n"
 #define debug false
-#define MOD  // Em geral necessário em exponenciação de matriz
+#define MOD   // Em geral necessário em exponenciação de matriz
 #define MAX 
 
 typedef vector<vector<ll int > > matrix;
 
+matrix identity(int N)
+{
+	matrix ident;
+	ident.resize(N);
+	for(int i=0;i<N;i++)
+	{
+		ident[i].resize(N);
+		for(int j=0;j<N;j++)
+			if(i==j)
+				ident[i][j]=1;
+	}
+	return ident;
+}
 // O(N^3)
 matrix mult(matrix A,matrix B)
 {
@@ -47,7 +60,7 @@ matrix mult(matrix A,matrix B)
 }
 
 // O(N^3 * log2(B) 
-matrix Fast_matrix_exp (matrix A,ll int b) // ERRO
+matrix Fast_matrix_exp (matrix A,ll int b) 
 {
 	int N = A.size();// Para matriz se exponenciada, a matriz deve ser quadrada.
 	matrix ret = identity(N); // toda matriz elevada a 0 = identidade, sendo esse o caso base.
@@ -60,18 +73,30 @@ matrix Fast_matrix_exp (matrix A,ll int b) // ERRO
 	}
 	return ret;
 }
-matrix identity(int N)
-{
-	
-}
-matrix base(int N)// função que inicializa matriz base (dependende da recorrência)
+
+/*
+	Função que inicializa matriz base (dependende da recorrência)
+	Para matriz ser exponenciada, precisa ser matriz quadrada, por isso N único.
+*/
+matrix base(int N)
 {
 
 }
-
+void PrintMat(matrix A)
+{
+	int N = A.size();
+	for(int i=0;i<N;i++)
+	{
+		for(int j=0;j<N;j++)
+		{
+			cout << A[i][j] << " ";
+		}
+		cout << endl;
+	}
+}
+			
 int main()
 {	
 	fastcin;
-	
 
 }
